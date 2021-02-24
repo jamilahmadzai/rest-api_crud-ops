@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/add-user", (req, res) => {
-  res.render("index");
+  res.render("add_user");
 });
 
 dotenv.config({ path: "config.env" });
