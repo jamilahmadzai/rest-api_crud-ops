@@ -28,17 +28,31 @@ exports.create = (req, res) => {
     });
 };
 
-//get all users
+//get all users/single user
 exports.find = (req, res) => {
-  Userdb.find()
-    .then((user) => {
-      res.send(user);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Error occured while retrieving the data",
+  if (req.query.id) {
+    Userdb.findById(req.query.id)
+      .then((data) => {
+        if (!data) {
+          res.status(404).send({ message: "User not found with this id" });
+        } else {
+          res.send(data);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({ message: "Error retrieving user" });
       });
-    });
+  } else {
+    Userdb.find()
+      .then((user) => {
+        res.send(user);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || "Error occured while retrieving the data",
+        });
+      });
+  }
 };
 
 //update a user
