@@ -41,8 +41,13 @@ a {
   text-align: center;
 }
 
+.new {
+  background-color: transparent;
+}
+
 .border-shadow {
   border: 1px solid var(--border-btn);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .text-dark {
@@ -178,7 +183,7 @@ table {
   margin: 0.4em 0;
 }
 
-#update-user .form-group input[type="text"] {
+.form-group input[type="text"] {
   width: 100%;
   padding: 0.6em 1em;
   margin: 0.5em 0;

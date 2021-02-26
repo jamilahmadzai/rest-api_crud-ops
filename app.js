@@ -18,13 +18,8 @@ app.set("view engine", "ejs");
 app.use("/css", express.static(path.resolve(__dirname, "assets/css")));
 app.use("/js", express.static(path.resolve(__dirname, "assets/js")));
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/add-user", (req, res) => {
-  res.render("add_user");
-});
+//load routers
+app.use("/", require("./server/routes/router"));
 
 dotenv.config({ path: "config.env" });
 const PORT = process.env.PORT || 3000;
