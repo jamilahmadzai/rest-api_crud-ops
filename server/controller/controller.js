@@ -29,10 +29,37 @@ exports.create = (req, res) => {
 };
 
 //get all users
-exports.find = (req, res) => {};
+exports.find = (req, res) => {
+  Userdb.find()
+    .then((user) => {
+      res.send(user);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Error occured while retrieving the data",
+      });
+    });
+};
 
 //update a user
-exports.update = (req, res) => {};
+exports.update = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({ message: "Fill all the info to update" });
+  }
+  Userdb.findByIdAndUpdate(req.params.id, req.body, { useFindAndModify: false })
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot update user with id ${req.params.id}. Maybe user not found`,
+        });
+      } else {
+        res.send(data);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: "Error update user information" });
+    });
+};
 
 //delete a user
 exports.delete = (req, res) => {};
