@@ -62,4 +62,18 @@ exports.update = (req, res) => {
 };
 
 //delete a user
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  Userdb.findByIdAndDelete(req.params.id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({ message: "Cannot find user with this id" });
+      } else {
+        res.send({
+          message: "User was deleted successfully",
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(404).send({ message: "Cannot delete user" });
+    });
+};
