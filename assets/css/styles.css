@@ -68,6 +68,15 @@ a {
   border: none;
 }
 
+.confirm {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.confirm h4 {
+  color: #06d6a0;
+}
+
 #header nav {
   background-color: #06d6a0;
   padding: 1em 0;

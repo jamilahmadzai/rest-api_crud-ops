@@ -23,6 +23,10 @@ route.get("/update-user", (req, res) => {
   res.render("update_user");
 });
 
+route.get("/user-confirmation", (req, res) => {
+  res.render("confirmation");
+});
+
 //API routes
 route.post("/api/users", controller.create);
 route.get("/api/users", controller.find);
