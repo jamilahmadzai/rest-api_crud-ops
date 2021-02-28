@@ -16,15 +16,15 @@
     </div>
 
     <!-- Form Handling -->
-    <form method="POST" id="update-user">
+    <form action="/update-user-confirmation" method="POST" id="update-user">
       <div class="new_user">
         <div class="form-group">
           <label for="name" class="text-light">Name</label>
-          <input type="hidden" name="id" value="" />
+          <input type="hidden" name="id" value="<%= user._id%>" />
           <input
             type="text"
             name="name"
-            value=""
+            value="<%= user.name%>"
             placeholder="Write a name..."
           />
         </div>
@@ -34,7 +34,7 @@
           <input
             type="text"
             name="email"
-            value=""
+            value="<%= user.email%>"
             placeholder="Write an email address..."
           />
         </div>
@@ -43,11 +43,13 @@
           <label for="gender" class="text-light">Gender</label>
 
           <div class="radio inline">
-            <input type="radio" id="male" name="gender" value="Male" />
+            <input type="radio" id="male" name="gender" value="male" <%=
+            user.gender ==='male' ? 'checked' : ''%>/>
             <label for="male" class="radio-label">Male</label>
           </div>
           <div class="radio inline">
-            <input type="radio" id="female" name="gender" value="Female" />
+            <input type="radio" id="female" name="gender" value="female" <%=
+            user.gender ==='female' ? 'checked' : ''%>/>
             <label for="female" class="radio-label">Female</label>
           </div>
         </div>
@@ -56,11 +58,13 @@
           <label for="gender" class="text-light">Status</label>
 
           <div class="radio inline">
-            <input type="radio" id="active" name="status" value="active" />
+            <input type="radio" id="active" name="status" value="active" <%=
+            user.status ==='active' ? 'checked' : ''%>/>
             <label for="active" class="radio-label">Active</label>
           </div>
           <div class="radio inline">
-            <input type="radio" id="inactive" name="status" value="inactive" />
+            <input type="radio" id="inactive" name="status" value="inactive" <%=
+            user.status ==='inactive' ? 'checked' : ''%>/>
             <label for="inactive" class="radio-label">Inactive</label>
           </div>
         </div>
@@ -72,3 +76,9 @@
     </form>
   </div>
 </main>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+  integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+  crossorigin="anonymous"
+></script>
+<script src="/js/index.js"></script>

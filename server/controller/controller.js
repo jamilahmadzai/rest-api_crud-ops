@@ -19,7 +19,7 @@ exports.create = (req, res) => {
   user
     .save(user)
     .then((data) => {
-      res.redirect("/user-confirmation");
+      res.redirect("/add-user-confirmation");
     })
     .catch((err) => {
       res.status(500).send({

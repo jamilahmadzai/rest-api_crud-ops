@@ -20,11 +20,18 @@ route.get("/add-user", (req, res) => {
 });
 
 route.get("/update-user", (req, res) => {
-  res.render("update_user");
+  axios
+    .get("http://localhost:3000/api/users", { params: { id: req.query.id } })
+    .then((response) => {
+      res.render("update_user", { user: response.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 });
 
-route.get("/user-confirmation", (req, res) => {
-  res.render("confirmation");
+route.get("/add-user-confirmation", (req, res) => {
+  res.render("add_user_confirmation");
 });
 
 //API routes
