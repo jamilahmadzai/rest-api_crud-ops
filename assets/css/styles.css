@@ -78,11 +78,13 @@ a {
 }
 
 #header nav {
-  background-color: #06d6a0;
+  background-color: #1e1e1e;
   padding: 1em 0;
   width: 100%;
 }
-
+.heading {
+  color: white;
+}
 #site-main {
   margin-top: 6em;
   font-family: "Barlow", sans-serif;
@@ -141,7 +143,7 @@ table {
 
 .table .thead-dark th {
   color: #fff;
-  background-color: var(--dark);
+  background-color: #1e1e1e;
   border-color: #32383e;
 }
 
@@ -259,6 +261,6 @@ table {
 
 #update-user .form-group .btn:hover,
 #add_user .form-group .btn:hover {
-  background-color: var(--dark);
+  background-color: #1e1e1e;
   color: var(--border);
 }
