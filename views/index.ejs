@@ -26,25 +26,28 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Username</td>
-                <td>example@gmai.com</td>
-                <td>Male</td>
-                <td>Active</td>
-                <td>
-                  <a href="/update-user" class="btn border-shadow update">
-                    <span class="text-gradient"
-                      ><i class="fas fa-pencil-alt"></i
-                    ></span>
-                  </a>
-                  <a class="btn border-shadow delete">
-                    <span class="text-gradient"
-                      ><i class="fas fa-trash"></i
-                    ></span>
-                  </a>
-                </td>
-              </tr>
+              <% users.forEach(user =>{ %>
+                <tr>
+                  <td><%= id+=1%></td>
+                  <td><%= user.name%></td>
+                  <td><%=user.email%></td>
+                  <td><%=user.gender%></td>
+                  <td><%=user.status%></td>
+
+                  <td>
+                    <a href="/update-user" class="btn border-shadow update">
+                      <span class="text-gradient"
+                        ><i class="fas fa-pencil-alt"></i
+                      ></span>
+                    </a>
+                    <a class="btn border-shadow delete">
+                      <span class="text-gradient"
+                        ><i class="fas fa-trash"></i
+                      ></span>
+                    </a>
+                  </td>
+                </tr>
+              <%}) %> 
             </tbody>
           </table>
         </form>
